@@ -20,3 +20,7 @@ foreach($arr as $key => $val)
 	    return view('Home.'.$val);
 	});
 }
+
+Route::get('/Admin', function(){
+	return view('Admin.index');
+});
