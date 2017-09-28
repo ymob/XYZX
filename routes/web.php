@@ -22,5 +22,12 @@ foreach($arr as $key => $val)
 }
 
 Route::get('/Admin', function(){
-	return view('Admin.index');
+	return view('Admin.Index.index');
 });
+
+
+Route::get('/', function(){
+	return view('Home.index');
+});
+
+Route::post('/Admin/Test/upload', "TestController@upload");
