@@ -231,7 +231,7 @@ $(function() {
                     l()
                 });
                 if (b.thumbPage) {
-                    g.append('<a href="#Prev" hidefocus="true" class="' + b.thumbPrev + '"><span>Up</span></a><a href="#Next" hidefocus="true" class="' + b.thumbNext + '"><span>Down</span></a>')
+                    g.append('<a href="#Prev" hidefocus="true" class="glyphicon glyphicon-triangle-bottom ' + b.thumbPrev + '"><span>Up</span></a><a href="#Next" hidefocus="true" class="glyphicon glyphicon-triangle-top ' + b.thumbNext + '"><span>Down</span></a>')
                 }
                 if (b.thumbDirection === "Y") {
                     D = C.outerHeight();

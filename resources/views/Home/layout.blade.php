@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
     <style type="text/css">
         
     </style>
 </head>
 <body>
     <!-- 头 -->
-    <div class="container">
+    <div class="container bg-efefef">
         <div id="header">
             <div id="h_top" class="row">
                 <div id="search" class="col-md-3">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-1">
-                    <img src="./images/logo.jpg">
+                    <img src="{{ asset('/images/logo.jpg') }}">
                 </div>
                 <div id="login" class="col-md-3">
                     <div class="col-xs-3 col-xs-offset-2">
@@ -41,7 +41,7 @@
                 
                 <ol class="nav nav-pills">
                     <li><span class="glyphicon glyphicon-align-justify"></span></li>
-                    <li><a href="{{ url('/index') }}">首页</a></li>
+                    <li><a href="{{ url('/') }}">首页</a></li>
                     <li><a href="{{ url('/about') }}">关于我们</a></li>
                     <li><a href="{{ url('/previous') }}">往届回顾</a></li>
                     <li><a href="{{ url('/showing') }}">2017进行时</a></li>
@@ -82,10 +82,10 @@
         </div>
     </div>
 
-    <script src="./js/jq.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/bannerOne.js"></script>
-    <script src="./js/bannerTwo.js"></script>
-    <script src="./js/bannerThree.js"></script>
+    <script src="{{ asset('/js/jq.min.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/js/bannerOne.js') }}"></script>
+    <script src="{{ asset('/js/bannerTwo.js') }}"></script>
+    <script src="{{ asset('/js/bannerThree.js') }}"></script>
 </body>
 </html>

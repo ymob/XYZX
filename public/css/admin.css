@@ -1,0 +1,13 @@
+.border-ccc{ border: 1px solid #ccc; }
+.border-danger{ border: 1px solid #D9534F; }
+.border-info{ border: 1px solid #5BC0DE; }
+a:hover{ text-decoration:none; color: #5BC0DE; }
+
+/* 活动详情-图片列表 */
+.img-list{ padding: 5px; margin: 10px; height: 200px; float: left; border-radius: 3px; border: 1px solid #aaa; box-shadow: 2px 2px 10px 2px #ccc; }
+.img-list img{ height: 100%; float: left; border: 1px solid #990099; }
+.img-list>div{ height: 100%; float: left; margin-left: 5px; }
+span.img-edit,span.img-remove{ border: 1px solid #555; color: #fff; background: #555; padding: 3px; border-radius: 50%; font-size: 12px; display: block; margin-bottom: 10px; }
+span.img-edit:hover{ background: #5BC0DE; }
+span.img-remove:hover{ background: #f00; }
+#img-add{ cursor: pointer; }

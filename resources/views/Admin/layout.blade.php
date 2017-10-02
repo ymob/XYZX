@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -13,6 +14,7 @@
     <link href="{{ asset('/Aaddmin/dist/css/sb-admin-2.css') }}" rel="stylesheet">
     <link href="{{ asset('/Aaddmin/bower_components/morrisjs/morris.css') }}" rel="stylesheet">
     <link href="{{ asset('/Aaddmin/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -168,17 +170,41 @@
                         
 
                         <li>
-                            <a href="{{ url('/index') }}"><i class="fa fa-dashboard fa-fw"></i> 前台首页</a>
+                            <a href="{{ url('/') }}" target="_blank"><i class="fa fa-dashboard fa-fw"></i> 前台首页</a>
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 二级菜单<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 平台管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ url('/index') }}">前台首页</a>
+                                    <a href="{{ url('/Admin/banner') }}">首页轮播图</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/about') }}">前台关于我们</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 活动管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ url('/Admin/activity') }}">活动列表</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/Admin/activity/add') }}">发布新活动</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 艺术家<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ url('/Admin/artist') }}">艺术家列表</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/Admin/artist/add') }}">艺术家入驻</a>
                                 </li>
                             </ul>
                         </li>
@@ -214,7 +240,9 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('/Aaddmin/dist/js/sb-admin-2.js') }}"></script>
-
+    <script type="text/javascript">
+       
+    </script>
+    @yield('script')
 </body>
-
 </html>

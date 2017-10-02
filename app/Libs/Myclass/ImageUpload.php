@@ -87,7 +87,7 @@ class ImageUpload
 		$ext = explode('.', $file['name'])[count(explode('.', $file['name'])) - 1];
 		if($fileSize > 0 && $file['size'] > $fileSize)
 		{
-			$res['info'] = '文件太大';
+			$res['info'] = '表示上传文件的大小超出了约定值';
 			$res['error'] = 1;
 			return $res;
 		}
@@ -95,7 +95,7 @@ class ImageUpload
 		do
 		{
 			$newName = time().rand(1000, 9999).'.'.$ext;
-		}while(file_exists($path.$newName));
+		}while(file_exists($path.$newName) || file_exists('./Uploads/'.$newName));
 
 		if(is_uploaded_file($file['tmp_name']))
 		{
