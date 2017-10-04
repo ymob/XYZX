@@ -51,7 +51,7 @@
                                                 <button class="btn btn-default">详情</button>
                                             </a>
                                             <a href="{{ url('/Admin/artist/edit/'.$val->id) }}">
-                                                <button class="btn btn-info">修改</button>
+                                                <button class="btn btn-primary">修改</button>
                                             </a>
                                             <a href="{{ url('/Admin/artist/status/'.$val->id.'/'.$val->status) }}">
                                                 <button class="btn btn-danger" title="{{ $val->status==1?'点击隐藏':'点击展示' }}">

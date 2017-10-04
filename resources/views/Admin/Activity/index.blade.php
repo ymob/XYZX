@@ -51,12 +51,14 @@
                                                 <button class="btn btn-default">详情</button>
                                             </a>
                                             <a href="{{ url('/Admin/activity/edit/'.$val->id) }}">
-                                                <button class="btn btn-info">修改</button>
+                                                <button class="btn btn-primary">修改</button>
                                             </a>
                                             <a href="{{ url('/Admin/activity/status/'.$val->id.'/'.$val->status) }}">
-                                                <button class="btn btn-danger" title="{{ $val->status==1?'点击隐藏':'点击展示' }}">
-                                                    {{ $val->status!=1?'隐藏':'展示' }}
-                                                </button>
+                                                @if($val->status)
+                                                <button class="btn btn-success btn-edit" title="点击隐藏">展示</button>
+                                                @else
+                                                <button class="btn btn-warning btn-edit" title="点击展示">隐藏</button>
+                                                @endif
                                             </a>
                                         </td>
                                     </tr>

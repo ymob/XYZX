@@ -15,6 +15,10 @@
     <link href="{{ asset('/Aaddmin/bower_components/morrisjs/morris.css') }}" rel="stylesheet">
     <link href="{{ asset('/Aaddmin/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="{{ asset('/BD-editer/ueditor.config.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ asset('/BD-editer/ueditor.all.min.js') }}"> </script>
+    <script type="text/javascript" charset="utf-8" src="{{ asset('/BD-editer/lang/zh-cn/zh-cn.js') }}"></script>
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -180,7 +184,7 @@
                                     <a href="{{ url('/Admin/banner') }}">首页轮播图</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/about') }}">前台关于我们</a>
+                                    <a href="{{ url('/Admin/about') }}">关于我们&联系我们</a>
                                 </li>
                             </ul>
                         </li>
@@ -205,6 +209,30 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('/Admin/artist/add') }}">艺术家入驻</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 展览<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ url('/Admin/show') }}">展览列表</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/Admin/show/add') }}">增加展览</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 友情链接<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ url('/Admin/link') }}">链接列表</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/Admin/link/add') }}">增加链接</a>
                                 </li>
                             </ul>
                         </li>

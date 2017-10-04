@@ -18,7 +18,7 @@ body{ background: rgba(51, 0, 153, .1); }
 	#nav li{ line-height: 60px; color: #ccc; float: left; font-size: 20px; line-height: 70px; }
 	#nav li a{ color: #000; text-decoration:none; }
 	#nav li a:hover{ color: #4C8CF5; text-shadow: 3px 3px 5px #aaa; }
-	#footer{ margin-top: 150px; height: 250px; background: #fff; }
+	#footer{ margin-top: 100px; padding: 20px 0 80px 0; background: #fff; }
 	#footer li{ line-height: 50px; font-size: 18px;  }
 	#footer p:nth-child(1){ font-size: 20px; margin-top: 20px; }
 	#footer p:nth-child(2){ margin-top: 15px; }
@@ -63,21 +63,20 @@ body{ background: rgba(51, 0, 153, .1); }
     #previous .container li div{ text-align: center; font-size: 20px; }
 
 /* 艺术家列表 */
-    #artists .container li img{ height: 140px; width: 100%; margin-bottom: 10px; } 
     #artists .container li{ padding: 0 20px; margin-bottom: 50px; }
+    #artists .container li img{ height: 140px; width: 100%; margin-bottom: 10px; } 
     #artists .container li div{ text-align: center; font-size: 20px; }
 
 
 /* 展览与活动 */
-    #show-event .container li{ padding: 0 25px; margin-bottom: 50px; }
-    #show-event .container li img{ height: 400px; width: 100%; margin-bottom: 10px; } 
-    #show-event .container li div{ text-align: center; font-size: 20px; }
+    #show .container li{ padding: 0 50px; margin-bottom: 50px; }
+    #show .container li img{ height: 400px; width: 100%; margin-bottom: 10px; } 
+    #show .container li div{ text-align: center; font-size: 20px; }
 
 /* 展览与活动详情 */
-	#show-event-info li { margin-bottom: 100px;  }
-	#show-event-info img{ height: 400px; width: 100%; }
-	#show-event-info h2{ margin:0 0 40px 0; color: #555; }
-	#show-event-info p{ font-size: 15px; color: #888;  }
+	#show-detail img{ height: 500px; width: 100%; }
+	#show-detail h2{ margin:30px 0 20px 0; color: #555; }
+	#show-detail h4{ color: #aaa; margin-bottom: 40px;  }
 
 
 /* 媒体与出版 */

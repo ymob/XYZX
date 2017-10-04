@@ -9,11 +9,12 @@
     </div>
     <div class="container bg-efefef">
         <div class="col-xs-8 col-xs-offset-2">
-            <h2>{{ $activity->title }}</h2>
-            <p>{{ $activity->content }}</p>
+            <h2>{{ $activity->title }}</h2><br>
+            <div>{!! $activity->content !!}</div>
         </div>
         <div class="col-xs-10 col-xs-offset-1 bannerTwo">
-
+            
+            @if(count($details) > 1)
             <div class="successlunbo">
                 <div class="succesny">
                     <div class="control">
@@ -36,7 +37,12 @@
                     </div>
                 </div>
             </div>
-
+            @else
+            
+            <h2 class="col-md-offset-2 text-info">暂无图片！</2>
+        
+            @endif
+            
         </div>
     </div>
 </div>

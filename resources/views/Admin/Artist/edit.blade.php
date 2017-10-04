@@ -55,7 +55,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="introduce">个人简介</label>
-                                        <textarea class="form-control" rows="5" name="introduce" id="introduce" placeholder="请输入个人简介">{{ old('introduce')?old('introduce'):(session('data')?session('data')['introduce']:$data->introduce) }}</textarea>
+                                        <script id="introduce" name="introduce" type="text/plain">
+                                        {!! old('introduce')?old('introduce'):(session('data')?session('data')['introduce']:$data->introduce) !!}
+                                        </script>
+                                        <script type="text/javascript">var ue = UE.getEditor('introduce');</script>
                                     </div>
                                     <button class="btn btn-info">添加</button>
                                 </form>
