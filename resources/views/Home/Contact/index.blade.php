@@ -5,20 +5,20 @@
 
 <div id="contactUs" class="container">
     <div class="col-xs-8 ccc col-xs-offset-2">
-        <h3>学院之星</h3>
-        <p>学院之星</p>
-        <p>浙江省嘉兴市嘉善县阳光大道1118号泗洲小学XXX</p>
-        <p>456550</p>
-        <p>400-000-000</p>
-        <p>13838383838</p>
+        <h3>{{ $data['title'] }}</h3>
+        <p>联系人：{{ $data['contacts'] }}</p>
+        <p>地址：{{ $data['address'] }}</p>
+        <p>邮编：{{ $data['postcode'] }}</p>
+        <p>手机：{{ $data['phone'] }}</p>
+        <p>座机：{{ $data['tel'] }}</p>
         <ul>
             <li>
-                <img src="./images/QRcode.jpg">
-                <span>微信</span>
+                <img src="{{ asset('/Uploads/'.$data['qrcode1']) }}">
+                <span>{{ $data['qrtitle1'] }}</span>
             </li>
-            <li>
-                <img src="./images/QRcode.jpg">
-                <span>微信</span>
+            <li style="margin-left: 20px;">
+                <img src="{{ asset('/Uploads/'.$data['qrcode2']) }}">
+                <span>{{ $data['qrtitle2'] }}</span>
             </li>
         </ul>
     </div>
@@ -44,18 +44,21 @@
         //创建地图函数：
         function createMap(){
             var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-            var point = new BMap.Point(113.65,34.76);//定义一个中心点坐标
+            var xy = "{{ $data['map'] }}";
+            xy = xy.split(',');
+
+            var point = new BMap.Point(xy[0],xy[1]);//定义一个中心点坐标
             map.centerAndZoom(point,12);//设定地图的中心点和坐标并将地图显示在地图容器中
             window.map = map;//将map变量存储在全局
             var icon = new BMap.Icon('{{ asset("/images/mapIco.png") }}', new BMap.Size(20, 32), {
-               anchor: new BMap.Size(10, 30)
+               anchor: new BMap.Size(20, 30)
             });
 
-            map.panTo(113.65,34.76);
+            map.panTo(xy[0],xy[1]);
 
-            map.panTo(new BMap.Point(113.65,34.76));// map.panTo方法，把点击的点设置为地图中心点  
+            map.panTo(new BMap.Point(xy[0],xy[1]));// map.panTo方法，把点击的点设置为地图中心点  
              //将覆盖物添加到地图中
-            var mkr = new BMap.Marker(new BMap.Point(113.65,34.76), {
+            var mkr = new BMap.Marker(new BMap.Point(xy[0],xy[1]), {
                 icon: icon
             });
             map.addOverlay(mkr);

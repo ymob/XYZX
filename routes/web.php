@@ -80,6 +80,8 @@ Route::get("/Admin/link/status/{id}/{status}", "Admin\LinkController@status");  
 Route::get("/Admin/about", "Admin\AboutController@index");                                  // 列表
 Route::post('/Admin/about/update', "Admin\AboutController@update");                         // 图片上传
 Route::post('/Admin/about/upload', "Admin\AboutController@upload");                         // 图片上传
+Route::get('/Admin/about/map', "Admin\AboutController@map");                               // 地图
+Route::post('/Admin/about/map', "Admin\AboutController@updateMap");                               // 地图
 
 // ========================================= 【 前台 】 ======================================
 $arr = ['about', 'artist', 'artists', 'showing', 'show-event', 'media-publish', 'contactUs', 'show-event-info', 'media-publish-info', 'media-publish-list'];
@@ -98,4 +100,5 @@ Route::get("/Artist", "Home\IndexController@artist");               // 艺术家
 Route::get('/Artist/{id}', "Home\IndexController@artistDetail");    // 艺术家详情
 Route::get('/Show', "Home\IndexController@show");                   // 展览列表
 Route::get('/Show/{id}', "Home\IndexController@showDetail");        // 展览详情
-
+Route::get('/About', "Home\IndexController@about");                 // 关于我们
+Route::get('/Contact', "Home\IndexController@contact");                 // 关于我们

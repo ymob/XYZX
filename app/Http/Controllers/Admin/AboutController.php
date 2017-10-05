@@ -70,9 +70,27 @@ class AboutController extends Controller
                 unset($data[$val]);
             }
         }
-        dd($data);
         $data[$data['field']] = $res['fileName'];
         return back()->with('data', $data);
+    }  
+
+    public function map()
+    {
+        $map = \DB::table('system')->where('key', 'map')->first();
+        return view('Admin.About.map', ['map' => $map->value]);
+    }
+
+    public function updateMap()
+    {
+        $map = $_POST['map'];
+        $res = \DB::table('system')->where('key', 'map')->update(['value' => $map]);
+        if($res)
+        {
+            return back()->with('info', '修改成功');
+        }else
+        {
+            return back()->with('info', '修改失败');
+        }
     }
 
 }

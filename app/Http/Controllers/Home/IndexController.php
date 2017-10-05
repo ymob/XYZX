@@ -75,4 +75,27 @@ class IndexController extends Controller
 		return view('Home.Show.details', ['data' => $res]);
 	}
 
+
+	public function about()
+	{
+		$data = \DB::table('system')->where('key', 'content')->orWhere('key', 'logo')->get();
+		$arr = [];
+		foreach ($data as $key => $val)
+		{
+			$arr[$val->key] = $val->value;
+		}
+		return view('Home.About.index', ['data' => $arr]);
+	}
+
+	public function contact()
+	{
+		$data = \DB::table('system')->get();
+		$arr = [];
+		foreach ($data as $key => $val)
+		{
+			$arr[$val->key] = $val->value;
+		}
+		return view('Home.Contact.index', ['data' => $arr]);
+	}
+
 }

@@ -27,10 +27,10 @@
                                 <div class="col-md-8 col-xs-12">
                                     <form id="one-form" action="{{ url('/Admin/about/update') }}" method="post">
                                         {{ csrf_field() }}
-                                        <h4>网站LOGO <small class="text-primary"> 点击点击下图选择您要上传的图片</small>  </h4>
+                                        <h4>网站LOGO <small class="text-primary"> 点击点击下图选择您要上传的图片。（ps: 选择图片后需要提交）</small>  </h4>
                                         <img onclick="javascript: imgUpload('logo')" src="{{ isset(session('data')['logo'])?asset('/Tmp/'.session('data')['logo']):asset('/Uploads/'.$data['logo']) }}" width="300" class="img-thumbnail">
                                         <p class="help-block">支持的格式：jpg | png | jpeg | gif | bmp</p>
-                                        <input type="hidden" name="logo" value="{{ session('data')['logo']?session('data')['logo']:$data['logo'] }}"/>
+                                        <input type="hidden" name="logo" value="{{ isset(session('data')['logo'])?session('data')['logo']:$data['logo'] }}"/>
                                         <div class="form-group">
                                             <label for="title">网站名称</label>
                                             <input name="title" type="text" class="form-control" id="title" value="{{ session('data')['title']?session('data')['title']:$data['title'] }}" placeholder="网站名称">
@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="form-group col-xs-6">
                                             <img onclick="javascript: imgUpload('qrcode1')" src="{{ isset(session('data')['qrcode1'])?asset('/Tmp/'.session('data')['qrcode1']):asset('/Uploads/'.$data['qrcode1']) }}" width="200" class="img-thumbnail" id="picModel">
-                                            <input type="hidden" name="qrcode1" value="{{ session('data')['qrcode1']?session('data')['qrcode1']:$data['qrcode1'] }}"/>
+                                            <input type="hidden" name="qrcode1" value="{{ isset(session('data')['qrcode1'])?session('data')['qrcode1']:$data['qrcode1'] }}"/>
                                             <p class="help-block">支持的格式：jpg | png | jpeg | gif | bmp</p>
                                         </div>
                                         <div class="form-group col-xs-6">
@@ -81,8 +81,8 @@
                                             <input name="qrtitle2" type="text" class="form-control" id="qrtitle2" value="{{ (session('data')['qrtitle2']?session('data')['qrtitle2']:$data['qrtitle2']) }}" placeholder="请输入邮政编码">
                                         </div>
                                         <div class="form-group col-xs-6">
-                                            <img onclick="javascript: imgUpload('qrcode2')" src="{{ (session('data')['qrcode2']?asset('/Tmp/'.session('data')['qrcode2']):asset('/Uploads/'.$data['qrcode2'])) }}" width="200" class="img-thumbnail" id="picModel">
-                                            <input type="hidden" name="qrcode2" value="{{ (session('data')['qrcode2']?session('data')['qrcode2']:$data['qrcode2']) }}"/>
+                                            <img onclick="javascript: imgUpload('qrcode2')" src="{{ isset(session('data')['qrcode2'])?asset('/Tmp/'.session('data')['qrcode2']):asset('/Uploads/'.$data['qrcode2']) }}" width="200" class="img-thumbnail" id="picModel">
+                                            <input type="hidden" name="qrcode2" value="{{ isset(session('data')['qrcode2'])?session('data')['qrcode2']:$data['qrcode2'] }}"/>
                                             <p class="help-block">支持的格式：jpg | png | jpeg | gif | bmp</p>
                                         </div>
                                         <button class="btn btn-info col-md-1">添加</button>

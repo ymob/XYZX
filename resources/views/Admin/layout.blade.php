@@ -18,6 +18,7 @@
     <script type="text/javascript" charset="utf-8" src="{{ asset('/BD-editer/ueditor.config.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ asset('/BD-editer/ueditor.all.min.js') }}"> </script>
     <script type="text/javascript" charset="utf-8" src="{{ asset('/BD-editer/lang/zh-cn/zh-cn.js') }}"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -185,6 +186,9 @@
                                 </li>
                                 <li>
                                     <a href="{{ url('/Admin/about') }}">关于我们&联系我们</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/Admin/about/map') }}">地图</a>
                                 </li>
                             </ul>
                         </li>
