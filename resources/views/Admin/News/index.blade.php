@@ -5,14 +5,14 @@
 	<div id="page-wrapper">
 	    <div class="row">
 	        <div class="col-lg-12">
-	            <h1 class="page-header">展览列表</h1>
+	            <h1 class="page-header">新闻列表</h1>
 	        </div>
 	        <!-- /.col-lg-12 -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <a href="{{ url('/Admin/show') }}">展览列表</a>
+                            <a href="{{ url('/Admin/news') }}">新闻列表</a>
                         </div>
                         <!-- /.panel-heading -->
                         @if(session('info'))
@@ -23,33 +23,31 @@
                         </div>
                         @endif
                         <div class="panel-body">
+                            <a href="{{ url('/Admin/news/add') }}">
+                                <button class="btn btn-info" style="margin-bottom: 10px;">发布新的新闻</button>
+                            </a>
                             <div class="dataTable_wrapper">
                                 <table class="table table-hover table-condensed table-bordered table-striped">
                                     <tr>
                                         <th class="text-center" width="5%">编号</th>
-                                        <th class="text-center" width="20%">作者</th>
-                                        <th class="text-center">内容</th>
-                                        <th class="text-center" width="20%">开始时间</th>                 
-                                        <th class="text-center">结束时间</th>
-                                        <th class="text-center">操作</th>
+                                        <th class="text-center" width="25%">标题</th>
+                                        <th class="text-center" width="40%">内容</th>
+                                        <th class="text-center" width="15%">发布时间</th>
+                                        <th class="text-center" width="15%">操作</th>
                                     </tr>
                                     @foreach($data as $key => $val)
                                     <tr class="text-center">
                                         <td style="line-height: 100px;">{{ $loop->iteration }}</td>
-                                        <td style="line-height: 100px;">{{ $val->author }}</td>
+                                        <td style="line-height: 100px;">{{ $val->title }}</td>
                                         <td style="line-height: 100px;" title="{{ $val->content }}">
-                                            {{ substr($val->content, 0, 30) }}
+                                            {{ substr($val->content, 0, 90) }}
                                         </td>
-                                        <td style="line-height: 100px;">{{ date('Y-m-d', $val->startime) }}</td>
-                                        <td style="line-height: 100px;">{{ date('Y-m-d', $val->endtime) }}</td>
+                                        <td style="line-height: 100px;">{{ date('Y-m-d H:i:s', $val->time) }}</td>
                                         <td style="line-height: 100px;">
-                                            <a href="{{ url('/Admin/show/detail/'.$val->id) }}">
-                                                <button class="btn btn-default">详情</button>
-                                            </a>
-                                            <a href="{{ url('/Admin/show/edit/'.$val->id) }}">
+                                            <a href="{{ url('/Admin/news/edit/'.$val->id) }}">
                                                 <button class="btn btn-primary">修改</button>
                                             </a>
-                                            <a href="{{ url('/Admin/show/status/'.$val->id.'/'.$val->status) }}">
+                                            <a href="{{ url('/Admin/news/status/'.$val->id.'/'.$val->status) }}">
                                                 @if($val->status)
                                                 <button class="btn btn-success btn-edit" title="点击隐藏">展示</button>
                                                 @else

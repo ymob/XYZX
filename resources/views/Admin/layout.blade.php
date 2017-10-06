@@ -190,6 +190,9 @@
                                 <li>
                                     <a href="{{ url('/Admin/about/map') }}">地图</a>
                                 </li>
+                                <li>
+                                    <a href="{{ url('/Admin/link') }}">友情链接</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -229,14 +232,16 @@
                             </ul>
                         </li>
 
+
+
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 友情链接<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 媒体与出版<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{ url('/Admin/link') }}">链接列表</a>
+                                    <a href="{{ url('/Admin/news') }}">媒体新闻</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/Admin/link/add') }}">增加链接</a>
+                                    <a href="{{ url('/Admin/show/add') }}">出版</a>
                                 </li>
                             </ul>
                         </li>

@@ -75,7 +75,7 @@ class IndexController extends Controller
 		return view('Home.Show.details', ['data' => $res]);
 	}
 
-
+	// 关于我们
 	public function about()
 	{
 		$data = \DB::table('system')->where('key', 'content')->orWhere('key', 'logo')->get();
@@ -87,6 +87,7 @@ class IndexController extends Controller
 		return view('Home.About.index', ['data' => $arr]);
 	}
 
+	// 联系我们
 	public function contact()
 	{
 		$data = \DB::table('system')->get();
@@ -96,6 +97,31 @@ class IndexController extends Controller
 			$arr[$val->key] = $val->value;
 		}
 		return view('Home.Contact.index', ['data' => $arr]);
+	}
+
+	// 新闻出版
+	public function news_publish()
+	{
+		return view('Home.News_Publish.index');
+	}
+
+	public function news()
+	{
+		$news = \DB::table('news')->select(['id', 'title', 'time'])->where('status', 1)->get();
+		$data = [];
+		foreach ($news as $key => $val)
+		{
+			$data[date('Y', $val->time)][] = $val;
+		}
+		arsort($data);
+		return view('Home.News_Publish.news', ['data' => $data]);
+	}
+
+
+	public function newsDetail($id)
+	{
+		$new = \DB::table('news')->where('id', $id)->first();
+		return view('Home.News_Publish.newsDetail', ['data' => $new]);
 	}
 
 }

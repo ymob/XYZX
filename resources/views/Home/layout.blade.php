@@ -49,7 +49,7 @@
                     <li><a href="{{ url('/Activity/'.$activityId->id) }}">2017进行时</a></li>
                     <li><a href="{{ url('/Artist') }}">2017精选艺术家</a></li>
                     <li><a href="{{ url('/Show') }}">展览</a></li>
-                    <li><a href="{{ url('/media-publish') }}">媒体与出版</a></li>
+                    <li><a href="{{ url('/News-Publish') }}">媒体与出版</a></li>
                     <li><a href="{{ url('/Contact') }}">联系我们</a></li>
                 </ol>
             </div>

@@ -80,8 +80,17 @@ Route::get("/Admin/link/status/{id}/{status}", "Admin\LinkController@status");  
 Route::get("/Admin/about", "Admin\AboutController@index");                                  // 列表
 Route::post('/Admin/about/update', "Admin\AboutController@update");                         // 图片上传
 Route::post('/Admin/about/upload', "Admin\AboutController@upload");                         // 图片上传
-Route::get('/Admin/about/map', "Admin\AboutController@map");                               // 地图
-Route::post('/Admin/about/map', "Admin\AboutController@updateMap");                               // 地图
+Route::get('/Admin/about/map', "Admin\AboutController@map");                                // 地图
+Route::post('/Admin/about/map', "Admin\AboutController@updateMap");                         // 地图
+
+// 媒体新闻
+Route::get("/Admin/news", "Admin\NewsController@index");                                    // 列表
+Route::get("/Admin/news/add", "Admin\NewsController@add");                                  // 列表
+Route::post('/Admin/news/insert', "Admin\NewsController@insert");                           // 写入数据库
+Route::get("/Admin/news/edit/{id}", "Admin\NewsController@edit");                           // 列表
+Route::post('/Admin/news/update', "Admin\NewsController@update");                           // 写入数据库
+Route::get("/Admin/news/status/{id}/{status}", "Admin\NewsController@status");              // 删除   
+
 
 // ========================================= 【 前台 】 ======================================
 $arr = ['about', 'artist', 'artists', 'showing', 'show-event', 'media-publish', 'contactUs', 'show-event-info', 'media-publish-info', 'media-publish-list'];
@@ -101,4 +110,7 @@ Route::get('/Artist/{id}', "Home\IndexController@artistDetail");    // 艺术家
 Route::get('/Show', "Home\IndexController@show");                   // 展览列表
 Route::get('/Show/{id}', "Home\IndexController@showDetail");        // 展览详情
 Route::get('/About', "Home\IndexController@about");                 // 关于我们
-Route::get('/Contact', "Home\IndexController@contact");                 // 关于我们
+Route::get('/Contact', "Home\IndexController@contact");             // 联系我们
+Route::get('/News-Publish', "Home\IndexController@news_publish");   // 新闻和出版
+Route::get('/News', "Home\IndexController@news");                  // 新闻列表
+Route::get('/News/{id}', "Home\IndexController@newsDetail");        // 新闻详情
