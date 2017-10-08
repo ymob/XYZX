@@ -124,4 +124,11 @@ class IndexController extends Controller
 		return view('Home.News_Publish.newsDetail', ['data' => $new]);
 	}
 
+	public function publish()
+	{
+		$data = \DB::table('publish')->get();
+		return view('Home.News_Publish.publish', ['data' => $data]);
+	}
+
 }
+	

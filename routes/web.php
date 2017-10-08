@@ -13,84 +13,104 @@
 
 
 
-
-Route::get('/Admin', function(){
-	return view('Admin.Index.index');
-});
-
-
-
-Route::post('/Admin/Test/upload', "TestController@upload");
+Route::get('/login', 'Admin\IndexController@login');
+Route::post('/login', 'Admin\IndexController@doLogin');
 
 // 后台
+Route::group(['middleware' => 'LoginMiddleware'], function(){
 
-// 轮播图
-Route::get("/Admin/banner", "Admin\BannerController@index");						       // 列表
-Route::get("/Admin/banner/add", "Admin\BannerController@add");						       // 添加页
-Route::post('/Admin/banner/upload', "Admin\BannerController@upload");				       // 图片上传
-Route::post('/Admin/banner/insert', "Admin\BannerController@insert");				       // 写入数据库
-Route::get("/Admin/banner/edit/{id}", "Admin\BannerController@edit");				       // 添加页
-Route::post("/Admin/banner/update", "Admin\BannerController@update");				       // 添加页
-Route::get("/Admin/banner/delete/{id}/{pic}", "Admin\BannerController@delete");		       // 删除
+	Route::get('/Admin', 'Admin\IndexController@index');
+	Route::get('/logout', 'Admin\IndexController@logout');
 
 
-// 艺术家
-Route::get("/Admin/artist", "Admin\ArtistController@index");						        // 列表
-Route::get("/Admin/artist/add", "Admin\ArtistController@add");						        // 添加页
-Route::post('/Admin/artist/upload', "Admin\ArtistController@upload");				        // 图片上传
-Route::post('/Admin/artist/insert', "Admin\ArtistController@insert");				        // 写入数据库
-Route::get("/Admin/artist/edit/{id}", "Admin\ArtistController@edit");				        // 添加页
-Route::post("/Admin/artist/update", "Admin\ArtistController@update");				        // 添加页
-Route::get("/Admin/artist/status/{id}/{pic}", "Admin\ArtistController@status");		        // 删除	
-Route::get("/Admin/artist/{id}", "Admin\ArtistController@detail");                          // 详情列表
-Route::post("/Admin/artist/detail/add", "Admin\ArtistController@detailAdd");                // 详情添加页
-Route::get("/Admin/artist/detail/delete/{id}", "Admin\ArtistController@detailDelete");      // 详情列表
+	Route::group(['middleware' => 'AuthMiddleware'], function(){
+		// 管理员
+		Route::get('/Admin/master', 'Admin\IndexController@master');
+		Route::get('/Admin/master/add', 'Admin\IndexController@add');
+		Route::post('/Admin/master/insert', 'Admin\IndexController@insert');
+		Route::get('/Admin/master/edit/{id}', 'Admin\IndexController@edit');
+		Route::post('/Admin/master/update', 'Admin\IndexController@update');
+		Route::get("/Admin/master/status/{id}/{pic}", "Admin\IndexController@status");		       // 删除	
+		Route::get('/Admin/master/delete/{id}', 'Admin\IndexController@delete');
+	});
 
-// 活动
-Route::get("/Admin/activity", "Admin\ActivityController@index");							// 列表
-Route::get("/Admin/activity/add", "Admin\ActivityController@add");							// 添加页
-Route::post('/Admin/activity/upload', "Admin\ActivityController@upload");					// 图片上传
-Route::post('/Admin/activity/insert', "Admin\ActivityController@insert");					// 写入数据库
-Route::get("/Admin/activity/edit/{id}", "Admin\ActivityController@edit");					// 添加页
-Route::post("/Admin/activity/update", "Admin\ActivityController@update");					// 添加页
-Route::get("/Admin/activity/status/{id}/{status}", "Admin\ActivityController@status");		// 删除	
-Route::get("/Admin/activity/{id}", "Admin\ActivityController@detail");						// 详情列表
-Route::post("/Admin/activity/detail/add", "Admin\ActivityController@detailAdd");			// 详情添加页
-Route::get("/Admin/activity/detail/delete/{id}", "Admin\ActivityController@detailDelete");	// 详情列表
-	
-// 展览
-Route::get("/Admin/show", "Admin\ShowController@index");                                    // 列表
-Route::get("/Admin/show/add", "Admin\ShowController@add");                                  // 添加页
-Route::post('/Admin/show/insert', "Admin\ShowController@insert");                           // 写入数据库
-Route::get("/Admin/show/edit/{id}", "Admin\ShowController@edit");                           // 添加页
-Route::post("/Admin/show/update", "Admin\ShowController@update");                           // 添加页
-Route::get("/Admin/show/status/{id}/{status}", "Admin\ShowController@status");              // 删除   
-Route::get("/Admin/show/detail/{id}", "Admin\ShowController@detail");                       // 详情列表
-Route::post("/Admin/show/detail/add", "Admin\ShowController@detailAdd");                    // 详情添加页
-Route::get("/Admin/show/detail/delete/{id}", "Admin\ShowController@detailDelete");          // 详情列表
-Route::post('/Admin/show/upload', "Admin\ShowController@upload");                           // 图片上传
-
-// 友情链接
-Route::get("/Admin/link", "Admin\LinkController@index");                                    // 列表
-Route::post("/Admin/link/{id}", "Admin\LinkController@update");                             // 修改
-Route::get("/Admin/link/status/{id}/{status}", "Admin\LinkController@status");              // 删除
+	// 轮播图
+	Route::get("/Admin/banner", "Admin\BannerController@index");						       // 列表
+	Route::get("/Admin/banner/add", "Admin\BannerController@add");						       // 添加页
+	Route::post('/Admin/banner/upload', "Admin\BannerController@upload");				       // 图片上传
+	Route::post('/Admin/banner/insert', "Admin\BannerController@insert");				       // 写入数据库
+	Route::get("/Admin/banner/edit/{id}", "Admin\BannerController@edit");				       // 添加页
+	Route::post("/Admin/banner/update", "Admin\BannerController@update");				       // 添加页
+	Route::get("/Admin/banner/delete/{id}/{pic}", "Admin\BannerController@delete");		       // 删除
 
 
-// 关于我们&联系我们
-Route::get("/Admin/about", "Admin\AboutController@index");                                  // 列表
-Route::post('/Admin/about/update', "Admin\AboutController@update");                         // 图片上传
-Route::post('/Admin/about/upload', "Admin\AboutController@upload");                         // 图片上传
-Route::get('/Admin/about/map', "Admin\AboutController@map");                                // 地图
-Route::post('/Admin/about/map', "Admin\AboutController@updateMap");                         // 地图
+	// 艺术家
+	Route::get("/Admin/artist", "Admin\ArtistController@index");						        // 列表
+	Route::get("/Admin/artist/add", "Admin\ArtistController@add");						        // 添加页
+	Route::post('/Admin/artist/upload', "Admin\ArtistController@upload");				        // 图片上传
+	Route::post('/Admin/artist/insert', "Admin\ArtistController@insert");				        // 写入数据库
+	Route::get("/Admin/artist/edit/{id}", "Admin\ArtistController@edit");				        // 添加页
+	Route::post("/Admin/artist/update", "Admin\ArtistController@update");				        // 添加页
+	Route::get("/Admin/artist/status/{id}/{pic}", "Admin\ArtistController@status");		        // 删除	
+	Route::get("/Admin/artist/{id}", "Admin\ArtistController@detail");                          // 详情列表
+	Route::post("/Admin/artist/detail/add", "Admin\ArtistController@detailAdd");                // 详情添加页
+	Route::get("/Admin/artist/detail/delete/{id}", "Admin\ArtistController@detailDelete");      // 详情列表
 
-// 媒体新闻
-Route::get("/Admin/news", "Admin\NewsController@index");                                    // 列表
-Route::get("/Admin/news/add", "Admin\NewsController@add");                                  // 列表
-Route::post('/Admin/news/insert', "Admin\NewsController@insert");                           // 写入数据库
-Route::get("/Admin/news/edit/{id}", "Admin\NewsController@edit");                           // 列表
-Route::post('/Admin/news/update', "Admin\NewsController@update");                           // 写入数据库
-Route::get("/Admin/news/status/{id}/{status}", "Admin\NewsController@status");              // 删除   
+	// 活动
+	Route::get("/Admin/activity", "Admin\ActivityController@index");							// 列表
+	Route::get("/Admin/activity/add", "Admin\ActivityController@add");							// 添加页
+	Route::post('/Admin/activity/upload', "Admin\ActivityController@upload");					// 图片上传
+	Route::post('/Admin/activity/insert', "Admin\ActivityController@insert");					// 写入数据库
+	Route::get("/Admin/activity/edit/{id}", "Admin\ActivityController@edit");					// 添加页
+	Route::post("/Admin/activity/update", "Admin\ActivityController@update");					// 添加页
+	Route::get("/Admin/activity/status/{id}/{status}", "Admin\ActivityController@status");		// 删除	
+	Route::get("/Admin/activity/{id}", "Admin\ActivityController@detail");						// 详情列表
+	Route::post("/Admin/activity/detail/add", "Admin\ActivityController@detailAdd");			// 详情添加页
+	Route::get("/Admin/activity/detail/delete/{id}", "Admin\ActivityController@detailDelete");	// 详情列表
+		
+	// 展览
+	Route::get("/Admin/show", "Admin\ShowController@index");                                    // 列表
+	Route::get("/Admin/show/add", "Admin\ShowController@add");                                  // 添加页
+	Route::post('/Admin/show/insert', "Admin\ShowController@insert");                           // 写入数据库
+	Route::get("/Admin/show/edit/{id}", "Admin\ShowController@edit");                           // 添加页
+	Route::post("/Admin/show/update", "Admin\ShowController@update");                           // 添加页
+	Route::get("/Admin/show/status/{id}/{status}", "Admin\ShowController@status");              // 删除   
+	Route::get("/Admin/show/detail/{id}", "Admin\ShowController@detail");                       // 详情列表
+	Route::post("/Admin/show/detail/add", "Admin\ShowController@detailAdd");                    // 详情添加页
+	Route::get("/Admin/show/detail/delete/{id}", "Admin\ShowController@detailDelete");          // 详情列表
+	Route::post('/Admin/show/upload', "Admin\ShowController@upload");                           // 图片上传
 
+	// 友情链接
+	Route::get("/Admin/link", "Admin\LinkController@index");                                    // 列表
+	Route::post("/Admin/link/{id}", "Admin\LinkController@update");                             // 修改
+	Route::get("/Admin/link/status/{id}/{status}", "Admin\LinkController@status");              // 删除
+
+
+	// 关于我们&联系我们
+	Route::get("/Admin/about", "Admin\AboutController@index");                                  // 列表
+	Route::post('/Admin/about/update', "Admin\AboutController@update");                         // 图片上传
+	Route::post('/Admin/about/upload', "Admin\AboutController@upload");                         // 图片上传
+	Route::get('/Admin/about/map', "Admin\AboutController@map");                                // 地图
+	Route::post('/Admin/about/map', "Admin\AboutController@updateMap");                         // 地图
+
+	// 媒体新闻
+	Route::get("/Admin/news", "Admin\NewsController@index");                                    // 列表
+	Route::get("/Admin/news/add", "Admin\NewsController@add");                                  // 列表
+	Route::post('/Admin/news/insert', "Admin\NewsController@insert");                           // 写入数据库
+	Route::get("/Admin/news/edit/{id}", "Admin\NewsController@edit");                           // 列表
+	Route::post('/Admin/news/update', "Admin\NewsController@update");                           // 写入数据库
+	Route::get("/Admin/news/status/{id}/{status}", "Admin\NewsController@status");              // 删除   
+
+
+	// 出版
+	Route::get("/Admin/publish", "Admin\PublishController@index");                                 // 列表
+	Route::get("/Admin/publish/add", "Admin\PublishController@add");                                  // 列表
+	Route::post('/Admin/publish/upload', "Admin\PublishController@upload");                           // 写入数据库
+	Route::post('/Admin/publish/insert', "Admin\PublishController@insert");                           // 写入数据库
+	Route::get("/Admin/publish/edit/{id}", "Admin\PublishController@edit");                           // 列表
+	Route::post('/Admin/publish/update', "Admin\PublishController@update");                           // 写入数据库
+
+});
 
 // ========================================= 【 前台 】 ======================================
 $arr = ['about', 'artist', 'artists', 'showing', 'show-event', 'media-publish', 'contactUs', 'show-event-info', 'media-publish-info', 'media-publish-list'];
@@ -112,5 +132,6 @@ Route::get('/Show/{id}', "Home\IndexController@showDetail");        // 展览详
 Route::get('/About', "Home\IndexController@about");                 // 关于我们
 Route::get('/Contact', "Home\IndexController@contact");             // 联系我们
 Route::get('/News-Publish', "Home\IndexController@news_publish");   // 新闻和出版
-Route::get('/News', "Home\IndexController@news");                  // 新闻列表
+Route::get('/News', "Home\IndexController@news");                   // 新闻列表
 Route::get('/News/{id}', "Home\IndexController@newsDetail");        // 新闻详情
+Route::get('/Publish', "Home\IndexController@publish");             // 新闻列表

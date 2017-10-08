@@ -31,7 +31,6 @@
                                     <label for="postcode">坐标</label>
                                     <input name="map" type="text" class="form-control" id="postcode" value="{{ $map }}" placeholder="在下图选择坐标">
                                 </div>
-                                <button class="btn btn-primary">修改</button>
                             </form>
                             <br>
                             <div class="col-xs-8 col-md-6">
@@ -77,7 +76,8 @@
                 icon: icon
             });
             map.addOverlay(mkr);
-            $('[name="map"]').val(e.point.lng+','+e.point.lat)
+            $('[name="map"]').val(e.point.lng+','+e.point.lat);
+            $('#one-form').submit();
         });  
 
 

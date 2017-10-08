@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- 头 -->
-    <div class="container bg-efefef">
+    <div class="container bg-efefef bg-my">
         <div id="header">
             <div id="h_top" class="row">
                 <div id="search" class="col-md-3">
@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-
+    
     @yield('content')
 
     <div id="footer">
