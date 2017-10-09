@@ -1,23 +1,21 @@
 *{ margin: 0; padding: 0; list-style: none; }
 a{ text-decoration: blink; }
-body{ background: #efefef }
+body{ background: rgba(0, 0, 255, .05) }
 .ccc{ border: 1px solid #ccc; }
 .red{ border: 1px solid red; }
 
-.bg-my{ background: #fff; padding: 0 30px;}
 
 /* 头尾样式 */
 	#header{ height: 210px; }
 	#h_top{ height: 100px; }
-	#search{ margin-top: 20px; margin-left: -15px; }
-	#search input{ border-radius: 15px; float: left; }
+	#search{ margin-top: 45px; }
+	#search input{ border-radius: 15px; }
 	#search span{ font-size: 20px; margin: 6px 0 0 -20px; }
-	#h_top .col-md-6 img{ height: 80px; margin-left: 150px;}
+	#h_top .col-xs-3 img{ height: 80px; }
 	#login{ margin-top: 20px; }
-	#login button,#login select{ float: left; }
 	#nav{ height: 60px; }
 	#nav span{ margin-top: 33px; }
-	#nav li{ line-height: 60px; color: #ccc; float: left; font-size: 20px; line-height: 70px; }
+	#nav li{ line-height: 60px; color: #ccc; float: left; font-size: 20px; line-height: 70px; padding-left: 20px; }
 	#nav li a{ color: #000; text-decoration:none; }
 	#nav li a:hover{ color: #4C8CF5; text-shadow: 3px 3px 5px #aaa; }
 	#footer{ margin-top: 100px; padding: 20px 0 80px 0; 

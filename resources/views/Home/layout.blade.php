@@ -12,34 +12,22 @@
 </head>
 <body>
     <!-- 头 -->
-    <div class="container bg-efefef bg-my">
+    <div class="container ">
         <div id="header">
             <div id="h_top" class="row">
-                <div id="search" class="col-md-3">
+                <div id="login" class="col-xs-3">
+                    <a href="{{ url('/') }}"><img src="{{ asset('/images/logo.png') }}"></a>
+                </div>
+                <div id="search" class="col-xs-3 col-xs-offset-6">
                     <div class="col-xs-10">
-                        <input type="text" class="form-control" placeholder="search" size=2>
+                        <input type="text" class="form-control" placeholder="艺术家名称" id="kw" size=2>
                     </div>
                     <div class="col-xs-2">
-                        <a href="#"><span class="glyphicon glyphicon-search"></span></a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xs-1">
-                    <img src="{{ asset('/images/logo.png') }}">
-                </div>
-                <div id="login" class="col-md-3">
-                    <div class="col-xs-3 col-xs-offset-2">
-                        <!-- <button class="btn btn-default">login</button> -->
-                    </div>
-                    <div class="col-xs-6">
-                        <select class="form-control">
-                            <option>汉语</option>
-                            <option>English</option>
-                        </select>
+                        <a href="{{ url('/Artist') }}?kw=" id="search_btn"><span class="glyphicon glyphicon-search"></span></a>
                     </div>
                 </div>
             </div>
             <div id="nav">
-                
                 <ol class="nav nav-pills">
                     <li><span class="glyphicon glyphicon-align-justify"></span></li>
                     <li><a href="{{ url('/') }}">首页</a></li>
@@ -84,5 +72,13 @@
     <script src="{{ asset('/js/bannerTwo.js') }}"></script>
     <script src="{{ asset('/js/bannerThree.js') }}"></script>
     @yield('script')
+
+    <script>
+        $('#search_btn').on('click', function(){
+            var kw = $('#kw').val();
+            var url = $(this).attr('href');
+            $(this).attr('href', url+kw);
+        });
+    </script>
 </body>
 </html>

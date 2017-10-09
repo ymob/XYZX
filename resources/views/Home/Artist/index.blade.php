@@ -19,8 +19,9 @@
                 </div>
             </li>
             @endforeach
-
-
+            @if(count($data) == 0)
+            <h2>暂时没有相关艺术家！</h2>
+            @endif
         </ul>
     </div>
 </div>

@@ -36,7 +36,8 @@ class IndexController extends Controller
 	// 艺术家列表
 	public function artist()
 	{
-		$res = \DB::table('artist')->orderBy('id', 'desc')->where(['status' => 1])->get();
+		$kw = isset($_GET['kw'])?$_GET['kw']:'';
+		$res = \DB::table('artist')->orderBy('id', 'desc')->where(['status' => 1])->where('name', 'like', '%'.$kw.'%')->get();
 		return view('Home.Artist.index', ['data' => $res]);
 	}
 
