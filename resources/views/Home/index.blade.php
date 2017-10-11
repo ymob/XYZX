@@ -19,25 +19,37 @@
 
 <div id="con" class="container pad-bot-150">
     <div class="row">
-        <div style="width: 25%; height: 100%;">
-            <img src="./images/3.jpg">
+        <div style="width: 24%; height: 100%;">
+            <a href="{{ empty($cover[0]->url)?'javascript:':$cover[0]->url }}" target="_blank">
+                <img src="{{ asset('Uploads/'.$cover[0]->pic) }}">
+            </a>
         </div>
-        <div style="width: 50%; height: 100%;">
-            <img src="./images/4.jpg">
+        <div style="width: 52%; height: 100%;">
+            <a href="{{ empty($cover[1]->url)?'javascript:':$cover[1]->url }}" target="_blank">
+                <img src="{{ asset('Uploads/'.$cover[1]->pic) }}">
+            </a>
         </div>
-        <div style="width: 25%; height: 100%;">
-            <img src="./images/5.jpg">
+        <div style="width: 24%; height: 100%;">
+            <a href="{{ empty($cover[2]->url)?'javascript:':$cover[2]->url }}" target="_blank">
+                <img src="{{ asset('Uploads/'.$cover[2]->pic) }}">
+            </a>
         </div>
     </div>
     <div class="row">
-        <div style="width: 25%; height: 100%;">
-            <img src="./images/7.jpg">
-        </div>
-        <div style="width: 37%; height: 100%;">
-            <img src="./images/8.jpg">
+        <div style="width: 24%; height: 100%;">
+            <a href="{{ empty($cover[3]->url)?'javascript:':$cover[3]->url }}" target="_blank">
+                <img src="{{ asset('Uploads/'.$cover[3]->pic) }}">
+            </a>
         </div>
         <div style="width: 38%; height: 100%;">
-            <img src="./images/9.jpg">
+            <a href="{{ empty($cover[4]->url)?'javascript:':$cover[4]->url }}" target="_blank">
+                <img src="{{ asset('Uploads/'.$cover[4]->pic) }}">
+            </a>
+        </div>
+        <div style="width: 38%; height: 100%;">
+            <a href="{{ empty($cover[5]->url)?'javascript:':$cover[5]->url }}" target="_blank">
+                <img src="{{ asset('Uploads/'.$cover[5]->pic) }}">
+            </a>
         </div>
     </div>
 </div>

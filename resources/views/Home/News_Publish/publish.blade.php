@@ -4,7 +4,7 @@
 
 <div id="artists">
     <div class="headerPic">
-        <img src="{{ asset('/images/show-event.jpg') }}">
+        <img src="{{ asset('/Uploads/'.$cover->pic) }}">
     </div>
     <div class="container">
         <ul class="col-xs-12">

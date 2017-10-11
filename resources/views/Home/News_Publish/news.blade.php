@@ -3,6 +3,9 @@
 
 @section('content')
 
+<div class="headerPic">
+    <img src="{{ asset('/Uploads/'.$cover->pic) }}">
+</div>
 <div id="media-publish-list" class="container">
     <ul class="col-xs-10 col-xs-offset-1">
         @foreach($data as $key => $val)

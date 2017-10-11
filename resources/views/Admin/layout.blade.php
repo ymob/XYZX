@@ -83,10 +83,13 @@
                                     <a href="{{ url('/Admin/master') }}">管理员</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/Admin/banner') }}">首页轮播图</a>
+                                    <a href="{{ url('/Admin/banner') }}">首页轮播</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/Admin/link') }}">友情链接</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/Admin/cover') }}">广告</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/Admin/about/map') }}">地图</a>

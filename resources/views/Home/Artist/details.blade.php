@@ -5,7 +5,7 @@
 
 <div id="showing">
     <div class="headerPic">
-        <img src="{{ asset('/images/artist.jpg') }}">
+        <img src="{{ asset('/Uploads/'.$cover->pic) }}">
     </div>
     <div class="container bg-efefef">
         <div class="col-xs-8 col-xs-offset-2">

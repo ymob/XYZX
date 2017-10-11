@@ -110,6 +110,12 @@ Route::group(['middleware' => 'LoginMiddleware'], function(){
 	Route::get("/Admin/publish/edit/{id}", "Admin\PublishController@edit");                           // 列表
 	Route::post('/Admin/publish/update', "Admin\PublishController@update");                           // 写入数据库
 
+	// 各种图片(广告)
+	Route::get("/Admin/cover", "Admin\CoverController@index");
+	Route::get("/Admin/cover/{id}", "Admin\CoverController@edit");
+	Route::post("/Admin/cover/update", "Admin\CoverController@update");
+	Route::post("/Admin/cover/upload", "Admin\CoverController@upload");
+
 });
 
 // ========================================= 【 前台 】 ======================================

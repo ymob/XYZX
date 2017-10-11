@@ -5,6 +5,10 @@
 
 
 <div id="show-detail">
+    
+    <div class="headerPic">
+        <img src="{{ asset('/Uploads/'.$cover->pic) }}">
+    </div>
     <div class="container">
         <ol>
             <li class="row">
@@ -27,9 +31,11 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-xs-6 col-md-offset-3">
-                    <h2>{{ $data->author }}</h2>
-                    <h4 class="col-md-offset-1">{{ date('m月d日', $data->startime).' -- '.date('m月d日', $data->endtime).' / '.date('Y年', $data->startime) }}</h4>
+                <div class="col-xs-8 col-md-offset-2">
+                    <div class="col-md-offset-4">
+                        <h2>{{ $data->author }}</h2>
+                        <h4 class="col-md-offset-1">{{ date('m月d日', $data->startime).' -- '.date('m月d日', $data->endtime).' / '.date('Y年', $data->startime) }}</h4>
+                    </div>
                     <div>
                         {!! $data->content !!}
                     </div>

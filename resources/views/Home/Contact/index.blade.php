@@ -3,6 +3,9 @@
 
 @section('content')
 
+<div class="headerPic">
+    <img src="{{ asset('/Uploads/'.$cover->pic) }}">
+</div>
 <div id="contactUs" class="container">
     <div class="col-xs-8 ccc col-xs-offset-2">
         <h3>{{ $data['title'] }}</h3>
