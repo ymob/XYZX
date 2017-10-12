@@ -10,7 +10,36 @@ class IndexController extends Controller
     // 后台首页
     public function index()
     {
+        // dd($_SERVER);
     	return view('Admin.Index.index');
+    }
+
+    // 清除缓存图片
+    public function clear()
+    {
+        delDirAll('./Tmp/');
+        delDirAll('../storage/framework/views/');
+        return back()->with('info', '清理缓存成功');
+    }
+
+    // 导航标题
+    public function title()
+    {
+        $res = \DB::table('title')->get();
+        return view('Admin.Title.index', ['data' => $res]);
+    }
+
+    public function upTitle(Request $request, $id)
+    {
+        $data = $request->except('_token');
+        $res = \DB::table('title')->where('id', $id)->update($data);
+        if($res)
+        {
+            return back()->with('info', '修改成功');
+        }else
+        {
+            return back()->with('info', '修改失败');
+        }
     }
 
     // 登录页

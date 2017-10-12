@@ -24,11 +24,11 @@
                     <div class="thumbWrap">
                         <div class="thumbCont">
                             <ul>
-                                <!-- img属性, url=url, text=描述, bigimg=大图, alt=标题  -->
-                                
                                 @foreach($details as $val)
                                 <li>
-                                    <div><img src="{{ asset('/Uploads/s_'.$val->pic) }}" text="" url="javascript:" bigImg="{{ asset('/Uploads/'.$val->pic) }}" alt=""></div>
+                                    <div>
+                                        <img src="{{ asset('/Uploads/s_'.$val->pic) }}" text="详情" target="_blank" url="{{ asset('/Uploads/'.$val->pic) }}" bigImg="{{ asset('/Uploads/'.$val->pic) }}" alt="点击查看原图">
+                                    </div>
                                 </li>
                                 @endforeach
 

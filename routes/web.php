@@ -21,6 +21,9 @@ Route::group(['middleware' => 'LoginMiddleware'], function(){
 
 	Route::get('/Admin', 'Admin\IndexController@index');
 	Route::get('/logout', 'Admin\IndexController@logout');
+	Route::get('/Admin/clear', 'Admin\IndexController@clear');
+	Route::get('/Admin/title', 'Admin\IndexController@title');
+	Route::post('/Admin/title/{id}', 'Admin\IndexController@upTitle');
 
 
 	Route::group(['middleware' => 'AuthMiddleware'], function(){

@@ -18,3 +18,17 @@ function removePic($pic)
 	if(file_exists('./Uploads/'.$pic)) unlink('./Uploads/'.$pic);
 	if(file_exists('./Uploads/s_'.$pic)) unlink('./Uploads/s_'.$pic);
 }
+
+
+function delDirAll($dir)
+{
+	$res = scandir($dir);
+    foreach ($res as $key => $val)
+    {
+        if($val == '.' || $val == '..') unset($res[$key]);
+    }
+    foreach ($res as $val)
+    {
+        if(file_exists($dir.$val)) unlink($dir.$val);
+    }
+}

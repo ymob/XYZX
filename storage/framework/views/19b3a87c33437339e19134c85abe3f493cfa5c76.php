@@ -1,6 +1,4 @@
-@extends('Admin.layout')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 	<div id="page-wrapper">
 	    <div class="row">
@@ -9,17 +7,17 @@
 	        </div>
             <div class="row">
                 <div class="col-lg-12">
-                    @if(session('info'))
+                    <?php if(session('info')): ?>
                     <div class="alert alert-success">
                         <ul>
-                            <li>{{ session('info') }}</li>
+                            <li><?php echo e(session('info')); ?></li>
                         </ul>
                     </div>
-                    @endif
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="panel-body">
-                <h3 class="text-warning">欢迎管理员: <span class="text-info">{{ session('master')->master }}</span> &nbsp;您好！</h3>
+                <h3 class="text-warning">欢迎管理员: <span class="text-info"><?php echo e(session('master')->master); ?></span> &nbsp;您好！</h3>
                 <br>
                 <div class="col-md-6">
                     <table class="table table-bordered table-striped">
@@ -43,19 +41,19 @@
                                 <th scope="row">
                                     <code>网站首页</code>
                                 </th>
-                                <td>{{ $_SERVER['SERVER_NAME'] }}</td>
+                                <td><?php echo e($_SERVER['SERVER_NAME']); ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
                                     <code>服务器软件及语言</code>
                                 </th>
-                                <td>{{ $_SERVER['SERVER_SOFTWARE'] }}</td>
+                                <td><?php echo e($_SERVER['SERVER_SOFTWARE']); ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
                                     <code>数据库</code>
                                 </th>
-                                <td>{{ $_SERVER['DB_CONNECTION'] }}</td>
+                                <td><?php echo e($_SERVER['DB_CONNECTION']); ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -67,7 +65,7 @@
                                 <th scope="row">
                                     <code>系统时间</code>
                                 </th>
-                                <td>{{ date('Y-m-d H:i:s') }}</td>
+                                <td><?php echo e(date('Y-m-d H:i:s')); ?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -76,4 +74,5 @@
 
 	    </div>
 	</div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('Admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

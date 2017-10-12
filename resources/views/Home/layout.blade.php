@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>学院之星</title>
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
     <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
@@ -20,7 +20,7 @@
                 </div>
                 <div id="search" class="col-xs-3 col-xs-offset-6">
                     <div class="col-xs-10">
-                        <input type="text" class="form-control" placeholder="艺术家名称" id="kw" size=2>
+                        <input type="search" class="form-control" placeholder="艺术家名称" id="kw" size=>
                     </div>
                     <div class="col-xs-2">
                         <a href="{{ url('/Artist') }}?kw=" id="search_btn"><span class="glyphicon glyphicon-search"></span></a>
@@ -29,16 +29,17 @@
             </div>
             <div id="nav">
                 <ol class="nav nav-pills">
+                    <?php $title = \DB::table('title')->get(); ?>
                     <li><span class="glyphicon glyphicon-align-justify"></span></li>
-                    <li><a href="{{ url('/') }}">首页</a></li>
-                    <li><a href="{{ url('/About') }}">关于我们</a></li>
-                    <li><a href="{{ url('/Previous') }}">往届回顾</a></li>
+                    <li><a href="{{ url('/') }}">{{ $title[0]->title }}</a></li>
+                    <li><a href="{{ url('/About') }}">{{ $title[1]->title }}</a></li>
+                    <li><a href="{{ url('/Previous') }}">{{ $title[2]->title }}</a></li>
                     <?php $activityId = \DB::table('activity')->select('id')->orderBy('time', 'desc')->where(['status' => 1])->first(); ?>
-                    <li><a href="{{ url('/Activity/'.$activityId->id) }}">2017进行时</a></li>
-                    <li><a href="{{ url('/Artist') }}">2017精选艺术家</a></li>
-                    <li><a href="{{ url('/Show') }}">展览</a></li>
-                    <li><a href="{{ url('/News-Publish') }}">媒体与出版</a></li>
-                    <li><a href="{{ url('/Contact') }}">联系我们</a></li>
+                    <li><a href="{{ url('/Activity/'.$activityId->id) }}">{{ $title[3]->title }}</a></li>
+                    <li><a href="{{ url('/Artist') }}">{{ $title[4]->title }}</a></li>
+                    <li><a href="{{ url('/Show') }}">{{ $title[5]->title }}</a></li>
+                    <li><a href="{{ url('/News-Publish') }}">{{ $title[6]->title }}</a></li>
+                    <li><a href="{{ url('/Contact') }}">{{ $title[7]->title }}</a></li>
                 </ol>
             </div>
         </div>
@@ -47,21 +48,20 @@
     @yield('content')
 
     <div id="footer">
-        <div class="container">
-            <div class="col col-md-5">
+        <div class="container" style="padding: 0;">
+            <div class="col-md-5">
                 <ul class="row">
                     <?php $link = \DB::table('link')->where('status', 1)->get(); ?>
                     @foreach($link as $val)
-                    <li class="col-xs-6"><a href="{{ $val->url }}" target="_blank">{{ $val->link }}</a></li>
+                    <li class="col-xs-6"><a href="{{ $val->url }}" class="f_link" target="_blank">{{ $val->link }}</a></li>
                     @endforeach
                 </ul>
             </div>
-            <div class="col col-md-2">
-            </div>
-            <div class="col col-md-5">
-                <p>JOIN OUR NEWSLETTER</p>
-                <p>Join up and get notified about new products, updates and special offers.</p>
-                <a href=""><p>Enter your E-mail !</p></a>
+            <div class="col-md-6 col-md-offset-1">
+                <p>学院之星</p>
+                <p>COPYRIGHT © {{ date('Y') == 2012 ? 2017 : '2017  -- '.date('Y') }} ALL RIGHTS RESERVED 学院之星 版权所有</p>
+                <p>备案号:<?php $res = \DB::table('title')->where('id', 9)->first(); echo $res->title ?></p>
+                <p style="color: #aaa">技术支持：孙大炮&Ymob</p>
             </div>
         </div>
     </div>

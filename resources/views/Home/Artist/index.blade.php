@@ -12,7 +12,7 @@
             @foreach($data as $val)
             <li class="col-md-2">
                 <a href="{{ url('/Artist/'.$val->id) }}">
-                    <img src="{{ asset('/Uploads/'.$val->pic) }}" title="{{ $val->name }}">
+                    <img src="{{ asset('/Uploads/s_'.$val->pic) }}" title="{{ $val->name }}">
                 </a>
                 <div>
                     <span>{{ $val->name }}</span>
